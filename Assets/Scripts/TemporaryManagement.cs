@@ -23,7 +23,6 @@ public class TemporaryManagement : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        //Debug.Log(1.0f / Time.deltaTime);
         if (score >= maxScore)
         {
             countdownToWin -= Time.deltaTime;
