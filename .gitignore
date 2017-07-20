@@ -49,3 +49,5 @@ Temporary Items
 # Non-essential Unity files
 Temp
 Library
+.sln
+.csproj
