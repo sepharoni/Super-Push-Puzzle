@@ -51,4 +51,4 @@ Temp
 Library
 *.sln
 *.csproj
-.vs
+*.suo
