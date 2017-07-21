@@ -46,9 +46,21 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# Non-essential Unity files
+# Non-essential Unity/VS files
 Temp
 Library
 *.sln
 *.csproj
+[Oo]bj
+[Bb]in
+*.user
 *.suo
+*.[Cc]ache
+*.bak
+*.ncb
+*.log 
+*.DS_Store
+[Tt]humbs.db 
+_ReSharper.*
+*.resharper
+Ankh.NoLoad
