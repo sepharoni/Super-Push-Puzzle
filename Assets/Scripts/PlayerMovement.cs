@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
     public float speed;
 
+    public static Vector2 stick;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -12,10 +14,10 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
 
-        transform.Translate(moveHorizontal * speed * Time.deltaTime, moveVertical * speed * Time.deltaTime, 0);
+        stick = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+        transform.Translate(stick.x * speed * Time.deltaTime, stick.y * speed * Time.deltaTime, 0);
 		
 	}
 }
