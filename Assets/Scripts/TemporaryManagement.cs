@@ -9,22 +9,18 @@ public class TemporaryManagement : MonoBehaviour {
 
     private GameObject[] gos;
 
-    private float countdownToWin;
+    public float countdownToWin;
+    private float defaultCountdownToWin;
 
-    private GameObject cam;
-    private Camera handycam;
-
-    public float winningCameraRotation;
-    private float defaultCameraRotation;
+    private CameraTricks camTricks;
 
     // Use this for initialization
     void Start () {
         score = 0;
         gos = GameObject.FindGameObjectsWithTag("Sokoban");
         maxScore = gos.Length;
-        countdownToWin = 3.0f;
-        cam = GameObject.Find("Main Camera");
-        handycam = cam.GetComponent<Camera>();
+        defaultCountdownToWin = countdownToWin;
+        camTricks = Object.FindObjectOfType<CameraTricks>();
     }
 
     // Update is called once per frame
@@ -32,11 +28,9 @@ public class TemporaryManagement : MonoBehaviour {
         if (score >= maxScore)
         {
             countdownToWin -= Time.deltaTime;
-            if (countdownToWin < 0.75f)
+            if (countdownToWin < defaultCountdownToWin/2.0f)
             {
-                cam.transform.Rotate(0, 0, winningCameraRotation * Time.deltaTime);
-                cam.transform.parent = transform;
-                handycam.orthographicSize -= Time.deltaTime * 2.25f;
+                camTricks.PickTrick();
             }
             if (countdownToWin <= 0.0f)
             {
@@ -44,12 +38,10 @@ public class TemporaryManagement : MonoBehaviour {
             }
         }
 
-        else if (countdownToWin != 3.0f)
+        else if (countdownToWin != defaultCountdownToWin)
         {
-            countdownToWin = 3.0f;
-            cam.transform.rotation = new Quaternion(0, 0, 0, 0);
-            cam.transform.parent = null;
-            handycam.orthographicSize = 5;
+            countdownToWin = defaultCountdownToWin;
+            camTricks.ResetCamera();
         }		
 	}
 

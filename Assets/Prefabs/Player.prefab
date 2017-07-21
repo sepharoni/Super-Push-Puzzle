@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b208faf0e3a735469390e08f542fbf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countdownToWin: 3
   winningCameraRotation: 450
 --- !u!114 &114141890386425220
 MonoBehaviour:
