@@ -31,26 +31,45 @@ public class CameraTricks : MonoBehaviour {
         }
     }
 
-    public void PickTrick()
+    public void PickTrick(int trickID)
     {
-        if (randomTrick == 1)
+        switch(trickID)
         {
-            FlushEffect(1);
-        } 
-        else if (randomTrick == 2)
-        {
-            FlushEffect(-1);
+            case -1:
+                ResetCamera();
+                break;
+            case 1:
+                FlushEffect(1);
+                break;
+            case 2:
+                FlushEffect(-1);
+                break;
+            default:
+                Debug.Log("PickTrick() switch-case fell through. trickID: " + trickID);
+                break;
         }
+        //if (randomTrick == -1)
+        //{
+        //    ResetCamera();
+        //}
+        //else if (randomTrick == 1)
+        //{
+        //    FlushEffect(1);
+        //} 
+        //else if (randomTrick == 2)
+        //{
+        //    FlushEffect(-1);
+        //}
     }
 
-    public void FlushEffect(int modifier)
+    void FlushEffect(int modifier)
     {
         transform.Rotate(cameraRotateTowards * modifier * Time.deltaTime);
         transform.parent = player.transform;
         cam.orthographicSize -= Time.deltaTime * cameraZoomSpeed * modifier;
     }
 
-    public void ResetCamera() //instantly reset all camera properties to default
+    void ResetCamera() //instantly reset all camera properties to default
     {
         transform.rotation = defaultCameraRotation;
         transform.position = defaultCameraPosition;

@@ -30,7 +30,7 @@ public class TemporaryManagement : MonoBehaviour {
             countdownToWin -= Time.deltaTime;
             if (countdownToWin < defaultCountdownToWin/2.0f)
             {
-                camTricks.PickTrick();
+                camTricks.PickTrick(camTricks.randomTrick);
             }
             if (countdownToWin <= 0.0f)
             {
@@ -41,7 +41,7 @@ public class TemporaryManagement : MonoBehaviour {
         else if (countdownToWin != defaultCountdownToWin)
         {
             countdownToWin = defaultCountdownToWin;
-            camTricks.ResetCamera();
+            camTricks.PickTrick(-1); //camTricks.ResetCamera shortcut
         }		
 	}
 
