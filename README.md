@@ -16,7 +16,7 @@ This project uses [SemVer](http://semver.org/). In essence, major releases updat
 
 To put this in the context of Super Push Puzzle: the game moving from development to release will constitute an update to the x of x.y.z, the game receiving additional level(s) will constitute an update to the y, and tweaks to existing levels or bug fixes will update the z.
 
-Editing scripts to improve cleanliness, performance, or provide minor adjustments to game balance/feel is a z-type change. Editing scripts with the intent of redesigning their function or adding new scripts entirely is a y-type change.
+Editing scripts to improve cleanliness, performance, or provide minor adjustments to game balance/feel is a z-type change. Editing scripts with the intent of redesigning their function. Adding new scripts is a similar principle: new scripts that serve to improve cleanliness without adding features to the game itself are z-type changes. New scripts that alter gameplay are y-type changes.
 
 ## Contributing
 
