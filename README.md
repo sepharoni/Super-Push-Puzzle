@@ -42,6 +42,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 * [kenney.nl](http://kenney.nl/) for the excellent CC-0 sprites
 * Friends & family for testing Super Puzzle Push
+* Doog for programming assistance
 
 ## Contact
 
