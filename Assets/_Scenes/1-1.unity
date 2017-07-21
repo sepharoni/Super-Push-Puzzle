@@ -1389,7 +1389,8 @@ Prefab:
       propertyPath: maxScore
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 438c9a94ac7edd641b10ef15295f0788, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1525743072

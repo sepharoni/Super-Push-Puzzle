@@ -52,3 +52,4 @@ Library
 *.sln
 *.csproj
 .vs
+*.suo
