@@ -11,11 +11,10 @@ public class ChangeScore : MonoBehaviour {
 
     private float roundPosiitonTimer;
 
-
 	// Use this for initialization
 	void Start () {
         isTriggered = false;
-        go = GameObject.Find("Temporary Management");
+        go = GameObject.Find("Player");
         tempManage = go.GetComponent<TemporaryManagement>();
         roundPosiitonTimer = 0.0f;
 		
@@ -42,7 +41,7 @@ public class ChangeScore : MonoBehaviour {
             if (!isTriggered)
             {
                 isTriggered = true;
-                tempManage.score += 1;
+                tempManage.UpdateScore(1);
             }
         }
     }
@@ -54,7 +53,7 @@ public class ChangeScore : MonoBehaviour {
             if (isTriggered)
             {
                 isTriggered = false;
-                tempManage.score -= 1;                
+                tempManage.UpdateScore(-1);                
             }
         }
     }
