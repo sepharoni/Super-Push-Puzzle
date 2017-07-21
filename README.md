@@ -41,7 +41,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgements 
 
 * [kenney.nl](http://kenney.nl/) for the excellent CC-0 sprites
-* Friends & family for testing Super Puzzle Push
+* Friends & family for testing Super Push Puzzle
 * Doog from [Actuator Games](http://actuatorgames.com/) for C# scripting assistance
 
 ## Contact
