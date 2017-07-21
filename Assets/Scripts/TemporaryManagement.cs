@@ -10,7 +10,6 @@ public class TemporaryManagement : MonoBehaviour {
     private GameObject[] gos;
 
     private float countdownToWin;
-    private float countdownToRestart;
 
     // Use this for initialization
     void Start () {
@@ -18,7 +17,6 @@ public class TemporaryManagement : MonoBehaviour {
         gos = GameObject.FindGameObjectsWithTag("Sokoban");
         maxScore = gos.Length;
         countdownToWin = 3.0f;
-        countdownToRestart = 0.75f;
     }
 
     // Update is called once per frame
@@ -36,20 +34,6 @@ public class TemporaryManagement : MonoBehaviour {
         else
         {
             countdownToWin = 3.0f;
-        }
-
-        if (Input.GetButton("Fire1"))
-        {
-            countdownToRestart -= Time.deltaTime;
-            if (countdownToRestart <= 0.0f)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }
-        }
-        else
-        {
-            countdownToRestart = 0.75f;
-        }
-		
+        }		
 	}
 }

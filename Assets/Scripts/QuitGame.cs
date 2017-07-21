@@ -14,7 +14,7 @@ public class QuitGame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButton("Cancel"))
+        if (Input.GetButton("Quit"))
         {
             countdownToQuit -= Time.deltaTime;
             if (countdownToQuit <= 0.0f)
