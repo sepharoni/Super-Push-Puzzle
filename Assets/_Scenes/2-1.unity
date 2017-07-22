@@ -660,6 +660,21 @@ Prefab:
       propertyPath: m_BackGroundColor.b
       value: 0.45490196
       objectReference: {fileID: 0}
+    - target: {fileID: 114274109964270376, guid: 8824c628b93e46b4894ad1a5c9e16064,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114252653258913418, guid: 8824c628b93e46b4894ad1a5c9e16064,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114274109964270376, guid: 8824c628b93e46b4894ad1a5c9e16064,
+        type: 2}
+      propertyPath: chromaticAberration
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8824c628b93e46b4894ad1a5c9e16064, type: 2}
   m_IsPrefabParent: 0
