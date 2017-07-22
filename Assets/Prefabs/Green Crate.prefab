@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 893f7349856f6f542b33a055dfb6ff05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorCode: Green
 --- !u!212 &212970444678353040
 SpriteRenderer:
   m_ObjectHideFlags: 1

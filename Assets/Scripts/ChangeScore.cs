@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ChangeScore : MonoBehaviour {
 
+    public string colorCode;
+
     private bool isTriggered;
 
     private GameObject go;
@@ -17,7 +19,6 @@ public class ChangeScore : MonoBehaviour {
         go = GameObject.Find("Player");
         tempManage = go.GetComponent<TemporaryManagement>();
         roundPosiitonTimer = 0.0f;
-		
 	}
 	
 	// Update is called once per frame
@@ -36,7 +37,8 @@ public class ChangeScore : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D coll)
     {
-        if (coll.tag == "Sokoban")
+        SokobanColorID collColor = coll.GetComponent<SokobanColorID>();
+        if (colorCode == collColor.colorCode)
         {
             if (!isTriggered)
             {
@@ -48,7 +50,8 @@ public class ChangeScore : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D coll)
     {
-        if (coll.tag == "Sokoban")
+        SokobanColorID collColor = coll.GetComponent<SokobanColorID>();
+        if (colorCode == collColor.colorCode)
         {
             if (isTriggered)
             {

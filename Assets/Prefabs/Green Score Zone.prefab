@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212526109245758296}
   - component: {fileID: 61999628599769354}
   - component: {fileID: 50813032485588556}
+  - component: {fileID: 114848475906966356}
   m_Layer: 0
   m_Name: Green Score Zone
   m_TagString: Sokoban
@@ -87,6 +88,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &114848475906966356
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422940630615610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8dc30e8ab40abb4f95ba81c4676dbc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorCode: Green
 --- !u!212 &212526109245758296
 SpriteRenderer:
   m_ObjectHideFlags: 1
