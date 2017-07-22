@@ -191,6 +191,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraRotateTowards: {x: 0, y: 0, z: 540}
   cameraZoomSpeed: 2.25
+  cameraShakeIntensity: 15
+  randomTrick: 0
 --- !u!124 &124898235855376890
 Behaviour:
   m_ObjectHideFlags: 1

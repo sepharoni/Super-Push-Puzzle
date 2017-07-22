@@ -32,6 +32,10 @@ public class TemporaryManagement : MonoBehaviour {
             {
                 camTricks.PickTrick(camTricks.randomTrick);
             }
+            if (countdownToWin < defaultCountdownToWin/10.0f)
+            {
+                camTricks.FinalShot();
+            }
             if (countdownToWin <= 0.0f)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -41,7 +45,7 @@ public class TemporaryManagement : MonoBehaviour {
         else if (countdownToWin != defaultCountdownToWin)
         {
             countdownToWin = defaultCountdownToWin;
-            camTricks.PickTrick(-1); //camTricks.ResetCamera shortcut
+            camTricks.ResetCamera();
         }		
 	}
 
