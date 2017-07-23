@@ -17,7 +17,13 @@ public class PlayerMovement : MonoBehaviour {
 
         stick = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        transform.Translate(stick.x * speed * Time.deltaTime, stick.y * speed * Time.deltaTime, 0);
-		
-	}
+        if (Input.GetButton("Sprint"))
+        {
+            transform.Translate(stick.x * speed * Time.deltaTime * 1.5f, stick.y * speed * Time.deltaTime * 1.5f, 0);
+        } 
+        else
+        {
+            transform.Translate(stick.x * speed * Time.deltaTime, stick.y * speed * Time.deltaTime, 0);
+        }
+    }
 }
