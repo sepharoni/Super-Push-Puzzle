@@ -55,6 +55,7 @@ public class ChangeScore : MonoBehaviour {
         {
             if (isTriggered)
             {
+                roundPosiitonTimer = 0.0f;
                 isTriggered = false;
                 tempManage.UpdateScore(-1);                
             }

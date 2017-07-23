@@ -20,26 +20,36 @@ public class AnimationMaster : MonoBehaviour {
         if (moveHorizontal > 0)
         {
             anim.SetInteger("State", 1);
+            anim.speed = Mathf.Abs(moveHorizontal);
         }
 
         else if (moveHorizontal < 0)
         {
             anim.SetInteger("State", 4);
+            anim.speed = Mathf.Abs(moveHorizontal);
         }
 
         else if (moveVertical > 0)
         {
             anim.SetInteger("State", 3);
+            anim.speed = Mathf.Abs(moveVertical);
         }
 
         else if (moveVertical < 0)
         {
             anim.SetInteger("State", 2);
+            anim.speed = Mathf.Abs(moveVertical);
         }
 
         if (moveVertical == 0 && moveHorizontal == 0)
         {
             anim.SetInteger("State", 0);
+            anim.speed = 1.0f;
+        }
+
+        if (Input.GetButton("Sprint"))
+        {
+            anim.speed = anim.speed * 1.5f;
         }
 		
 	}
