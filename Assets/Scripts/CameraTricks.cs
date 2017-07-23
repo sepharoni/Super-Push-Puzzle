@@ -7,6 +7,7 @@ public class CameraTricks : MonoBehaviour {
     public Vector3 cameraRotateTowards;
     public float cameraZoomSpeed;
     public float cameraShakeIntensity;
+    public float cameraMinMoveTowardsSpeed;
 
     private Camera cam;
 
@@ -15,7 +16,6 @@ public class CameraTricks : MonoBehaviour {
     private float defaultCameraOrthographicSize; //should be 5, but grab it anyways to avoid magic numbers
 
     private GameObject player;
-    private Renderer playerRenderer;
 
     public int randomTrick;
     private int totalNumberOfTricks = 4;
@@ -27,10 +27,41 @@ public class CameraTricks : MonoBehaviour {
         defaultCameraPosition = transform.position;
         defaultCameraOrthographicSize = cam.orthographicSize;
         player = GameObject.FindGameObjectWithTag("Player");
-        playerRenderer = player.GetComponent<Renderer>();
+        cam.orthographicSize = GameManager.instance.heldCameraOrthographicSize;
         if (randomTrick == 0)
         {
             randomTrick = Random.Range(1, totalNumberOfTricks + 1);
+        }
+    }
+
+    void Update()
+    {
+        if (cam.orthographicSize != defaultCameraOrthographicSize)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3 (player.transform.position.x, player.transform.position.y, -10), Time.deltaTime * cameraMinMoveTowardsSpeed);
+            if (cam.orthographicSize < defaultCameraOrthographicSize)
+            {
+                cam.orthographicSize += Time.deltaTime * (cameraZoomSpeed/1.5f);
+                if (cam.orthographicSize >= defaultCameraOrthographicSize)
+                {
+                    cam.orthographicSize = defaultCameraOrthographicSize;
+                    GameManager.instance.heldCameraOrthographicSize = defaultCameraOrthographicSize;
+                }
+            }
+            else
+            {
+                cam.orthographicSize -= Time.deltaTime * (cameraZoomSpeed/1.5f);
+                if (cam.orthographicSize <= defaultCameraOrthographicSize)
+                {
+                    cam.orthographicSize = defaultCameraOrthographicSize;
+                    GameManager.instance.heldCameraOrthographicSize = defaultCameraOrthographicSize;
+                }
+            }
+        }
+
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, defaultCameraPosition, Time.deltaTime * cameraMinMoveTowardsSpeed);
         }
     }
 
@@ -72,16 +103,13 @@ public class CameraTricks : MonoBehaviour {
 
     void Zoom(int modifier)
     {
-        cam.orthographicSize -= Time.deltaTime * cameraZoomSpeed * modifier;
-        if (!playerRenderer.isVisible)
-        {
-            transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
-        }
+        cam.orthographicSize -= Time.deltaTime * cameraZoomSpeed * modifier * 1.5f;
+        GameManager.instance.heldCameraOrthographicSize = cam.orthographicSize;
     }
 
     public void FinalShot()
     {
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, Time.deltaTime * 10.0f);
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, Time.deltaTime * (cameraMinMoveTowardsSpeed * 3.0f));
     }
 
     public void ResetCamera() //instantly reset all camera properties to default
